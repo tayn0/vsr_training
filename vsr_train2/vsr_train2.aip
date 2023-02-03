@@ -41,6 +41,12 @@ unitType1 = "ibscup"
 [Plan3]
 planType = "CollectPool"
 planPriority = 98
+
+planCondition = "Exists"
+planConditionClass = "ibscav_vsr"
+planConditionCount = 1
+planCompare = "<"
+
 buildIfNoIdle = 1
 ContinueEvenIfFail = true
 
@@ -51,7 +57,7 @@ ContinueEvenIfFail = true
 planType = "BuildMinimums"
 planPriority = 91
 
-buildType1 = "ivcons"
+buildType1 = "ivcons_vsr"
 buildCount1 = 1
 
 //////////////////////////
@@ -99,6 +105,7 @@ planType = "BaseBuildMinimums"
 planPriority = 85
 
 buildType1 = "ibpgen_vsr"
+buildCount1 = 2
 
 
 //////////////////////////
@@ -121,6 +128,7 @@ planType = "BaseBuildMinimums"
 planPriority = 75
 
 buildType1 = "ibsbay_vsr"
+buildType2 = "ibarmo_vsr"
 
 
 //////////////////////////

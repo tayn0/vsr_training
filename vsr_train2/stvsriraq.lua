@@ -57,8 +57,9 @@ function AddObject(h) --This function is called when an object appears in the ga
 	elseif IsOdf(h, "ivrecy")  and  GetTeamNum(h) == 1 then
 		Mission.RecyclerIsAlive = true
 
-	elseif IsOdf(h, "ispilo") and GetPlayerHandle = h then
-		temp = BuildObject
+	--elseif IsOdf(h, "ispilo") and GetPlayerHandle == h then
+		--Mission.Player = BuildObject("ivscout_vsr", PlayerTeam, "Player_1")
+		--SetAsUser(Mission.Player, PlayerTeam)
 
 	end
 		
@@ -87,6 +88,18 @@ function InitialSetup()
 	AllowRandomTracks(true)
 end
 
+function PlayerEjected(h)
+
+	Mission.Player = BuildObject("ivscout_vsr", PlayerTeam, "Player_1")
+	SetAsUser(Mission.Player, PlayerTeam)
+	GiveWeapon(Mission.Player,"gchainvsr_c")
+	GiveWeapon(Mission.Player,"gshadowvsr_c")
+	GiveWeapon(Mission.Player,"gproxminvsr")
+
+return 2
+
+end
+
 function Start() --This function is called upon the first frame
 
 	Ally(1,1)
@@ -106,14 +119,20 @@ function Start() --This function is called upon the first frame
 	RemoveObject(Mission.Player)
 	Mission.Player = BuildObject("ivscout_vsr", PlayerTeam, xfrm)
 	SetAsUser(Mission.Player, PlayerTeam)
+	GiveWeapon(Mission.Player,"gchainvsr_c")
+	GiveWeapon(Mission.Player,"gshadowvsr_c")
+	GiveWeapon(Mission.Player,"gproxminvsr")
 	
 	Mission.playersrecy = BuildObject("ivrecy_vsr", 1, "Recycler", 0)
 	Mission.enemyrecy = BuildObject("ivrecy_vsr", 6, "RecyclerEnemy", 0)
+	Mission.enemyrec_deployed = false
 	
 	AddScrap(1, 40)
 	AddScrap(6, 40)
 
 end
+
+
 
 function Update() --This function runs on every frame.
 	Mission.TurnCounter = Mission.TurnCounter + 1
@@ -122,6 +141,13 @@ function Update() --This function runs on every frame.
 end
 
 function missionCode() --
+
+	if GetCurrentCommand(GetPlayerHandle()) == 50 then
+		PrintConsoleMessage("Success")
+	end
+
+	Mission.Player = GetPlayerHandle()
+	
 	if Mission.enemyrec_deployed == false and (GetTime() > 5.0) then
 		PrintConsoleMessage("Deploying Rec")
 		Dropoff(Mission.enemyrecy, "RecyclerEnemy")
