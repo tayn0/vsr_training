@@ -1,0 +1,37 @@
+[MissionInfo]
+countISDF = 2
+countScion = 0
+
+[ISDF 1]
+missionTitle = "VSR Training Module"
+missionInfo = "vsr_train.des"
+missionFile = "bridges2i.bzn"
+planetName = "Mire"
+planetInfo = "mire.des"
+planetGeom = "mire.fbx"
+preBriefMovie = ""
+
+techCount = 1
+techName1 = "ISDF Scout"
+techInfo1 = "ivscout.inf"
+techGeom1 = "ivscout00.fbx"
+
+launchMessage = ""
+launchBackground = "mire_load.tga"
+
+[ISDF 2]
+missionTitle = "VSR Training Module 2"
+missionInfo = "stvsriraq.des"
+missionFile = "stvsriraq.bzn"
+planetName = "Mire"
+planetInfo = "mire.des"
+planetGeom = "mire.fbx"
+preBriefMovie = ""
+
+techCount = 1
+techName1 = "ISDF Scout"
+techInfo1 = "ivscout.inf"
+techGeom1 = "ivscout00.fbx"
+
+launchMessage = ""
+launchBackground = "mire_load.tga"

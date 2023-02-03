@@ -1,0 +1,146 @@
+[Start]
+scrapCount = 40
+scavClass = "ivscav"
+consClass = "ivcons"
+IdleAllCraft = false // Prevent Interrupting AI.
+
+[IdleDispatcher]
+UnitIdleSeconds = 999999 // Don't send out units via Dispatch.
+
+[Cheat]
+moneyAmount = 10
+moneyDelay = 2
+
+//////////////////////////
+/////////////////////////
+
+[Plan1]
+planType = "Recover"
+planPriority = 100
+MinWreckHealth = 0.8
+
+serviceUnit = "ibsbay"
+unitType2 = "ivcons"
+//////////////////////////
+/////////////////////////
+
+[Plan2]
+planType = "Service"
+planPriority = 99
+
+MinWreckHealth = 0.5
+
+buildIfNoIdle = 1
+serviceUnit = "ivserv"
+unitType1 = "ibscup"
+
+
+//////////////////////////
+/////////////////////////
+
+[Plan3]
+planType = "CollectPool"
+planPriority = 98
+buildIfNoIdle = 1
+ContinueEvenIfFail = true
+
+//////////////////////////
+/////////////////////////
+
+[Plan4]
+planType = "BuildMinimums"
+planPriority = 91
+
+buildType1 = "ivcons"
+buildCount1 = 1
+
+//////////////////////////
+/////////////////////////
+
+
+[Plan5]
+planType = "Upgrade"
+planPriority = 90
+planCondition = "Exists"
+planConditionClass = "ibscup"
+planConditionCount = 0
+planCompare = "=="
+unitType = "ibscav"
+
+
+//////////////////////////
+/////////////////////////
+
+
+[Plan6]
+planType = "BuildMinimums"
+planPriority = 89
+ContinueEvenIfFail = true
+
+
+planCondition = "Exists"
+planConditionClass = "apserv"
+planConditionCount = 3
+planCompare = "<"
+
+buildType1 = "apserv"
+buildCount1 = 3
+
+//////////////////////////
+/////////////////////////
+
+[Plan7]
+planType = "BuildMinimums"
+planPriority = 88
+buildType1 = "ivscout"
+buildCount1 = 1
+
+//////////////////////////
+/////////////////////////
+
+
+//////////////////////////
+/////////////////////////
+
+
+[Plan8]
+planType = "BaseBuildMinimums"
+planPriority = 85
+
+buildType1 = "ibpgen"
+
+
+//////////////////////////
+/////////////////////////
+
+[Plan9]
+planType = "BaseBuildMinimums"
+planPriority = 80
+
+
+buildType1 = "ibfact"
+
+
+
+//////////////////////////
+/////////////////////////
+
+[Plan10]
+planType = "BaseBuildMinimums"
+planPriority = 75
+
+buildType1 = "ibsbay"
+
+
+//////////////////////////
+/////////////////////////
+
+[Plan11]
+planType = "BuildMinimums"
+planPriority = 74
+buildType1 = "ivserv"
+buildCount1 = 1
+
+//////////////////////////
+/////////////////////////
+
